@@ -11,9 +11,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to Watchswap. It's time to share.");
 });
 
-// const artemisController = require("./controllers/artemisController.js");
-// app.use("/pets", artemisController);
-
+const watchesController = require("./controllers/watchesController.js");
+app.use("/watches", watchesController);
 
 // 404 PAGE
 app.get("*", (req, res) => {
@@ -21,10 +20,9 @@ app.get("*", (req, res) => {
 });
 
 // EXPORT
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3332;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
 
 module.exports = app;
